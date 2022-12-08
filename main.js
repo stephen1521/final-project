@@ -130,6 +130,10 @@ let scoreDisplay = document.querySelector('#score');
 let score = 0;
 // colors of the 7 tetrominoes
 let colors = ['orange', 'red', 'blue', 'green', 'purple', 'yellow', 'violet']
+// multiplier for clearing multiple lines at once(defualt is 0)
+let multiplier = 0;
+// score to add keeps track of how many lines are cleared so we can multiply be the right number
+let scoreToAdd = 10;
 
 //draws current tetromino
 let draw = () => {
@@ -172,6 +176,10 @@ let freeze = () => {
         displayNextPiece();
         // updates score
         addScore();
+        // resets multiplier
+        multiplier = 0;
+        // resets score to add
+        scoreToAdd = 0;
         // updates level
         levels();
         // checks if game is over
@@ -203,10 +211,10 @@ let addScore = () => {
         let row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
         //checks if every block in that row has the stop class
         if(row.every(i => boardSquares[i].classList.contains('stop'))){
-            // add/update score
-            score += 10;
-            // update display score
-            scoreDisplay.innerText = score;
+            //increment multiplier by 1 for each row removed
+            multiplier++;
+            //each row is worth 10 points
+            scoreToAdd+= 10;
             //removes stop, tetromino classes, and colors
             row.forEach(i => {
                 boardSquares[i].classList.remove('stop');
@@ -221,6 +229,10 @@ let addScore = () => {
             boardSquares.forEach(i => board.appendChild(i));
         }
     }
+    // add/update score, score equals how many rows removed(10 points for each row) multiplied by how many rows removed(+1 for each row) ex 3 rows removed is 30 x 3, add 90 to score.
+    score += (scoreToAdd * multiplier);
+    // update display score
+    scoreDisplay.innerText = score;
 }
 
 //checks if starting position has a block with the stop class in it, if so suspends the interval and stops the game. 
@@ -398,27 +410,27 @@ puaseButton.addEventListener('click', () => {
 
 //determines how fast the blocks will fall based off of score
 let levels = () => {
-    if(score >= 200 && score < 400){
+    if(score >= 400 && score < 800){
         resetInterval(900, '2');
-    }else if (score >= 400 && score < 600){
+    }else if (score >= 800 && score < 1200){
         resetInterval(800, '3');
-    }else if (score >= 600 && score < 800){
+    }else if (score >= 1200 && score < 1600){
         resetInterval(700, '4');
-    }else if (score >= 800 && score < 1000){
+    }else if (score >= 1600 && score < 2000){
         resetInterval(600, '5');
-    }else if (score >= 1000 && score < 1200){
+    }else if (score >= 2000 && score < 2400){
         resetInterval(500, '6');
-    }else if (score >= 1200 && score < 1400){
+    }else if (score >= 2400 && score < 2800){
         resetInterval(400, '7');
-    }else if (score >= 1400 && score < 1600){
+    }else if (score >= 2800 && score < 3200){
         resetInterval(300, '8');
-    }else if (score >= 1600 && score < 1800){
+    }else if (score >= 3200 && score < 3600){
         resetInterval(200, '9');
-    }else if (score >= 1800 && score < 2000){
+    }else if (score >= 3600 && score < 4000){
         resetInterval(100, '10');
-    }else if (score >= 2000 && score < 2500){
+    }else if (score >= 4000 && score < 4400){
         resetInterval(50, '11');
-    }else if (score >= 2500){
+    }else if (score >= 4800){
         resetInterval(20, '12');
     }
 }

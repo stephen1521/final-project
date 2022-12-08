@@ -75,7 +75,13 @@ Display the next tetromino.
 
 ## Score and Levels
 
-Every 200 points the level increases and the speed at which the tetromino drops is increased.
+Every 400 points the level increases and the speed at which the tetromino drops is increased.
+
+Multiple rows removed at the same time result in a a multiplier by how many rows are removed.
+
+Each row is worth 10 points.
+
+Therefore if you were to remove 2 rows at the same time your score would increase by 40 points.
 
 Level 1 = 1000ms
 
