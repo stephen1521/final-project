@@ -132,7 +132,7 @@ let score = 0;
 let colors = ['orange', 'red', 'blue', 'green', 'purple', 'yellow', 'violet']
 // multiplier for clearing multiple lines at once(defualt is 0)
 let multiplier = 0;
-// score to add keeps track of how many lines are cleared so we can multiply be the right number
+// score to add keeps track of how many lines are cleared points so we can multiply be the right number(default is 10)
 let scoreToAdd = 10;
 
 //draws current tetromino

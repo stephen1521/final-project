@@ -45,9 +45,7 @@ And so many more possibilities!
 * Try to write a function for each separate piece of functionality that exists in your code. This will make your code "modular" and easier to build off of.
 * If you find yourself repeating code, think about how you could use either a loop or a new function to eliminate the repitition.
 
-# Tetris
-
-Tetris Clone
+# Tetris Clone
 
 ## Controls
 
