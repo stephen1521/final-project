@@ -10,7 +10,7 @@ let createBoard = () => {
         boardDiv.classList.add('boardDiv');
         board.appendChild(boardDiv);
     }
-    // loop and cfeate a div and append to board, add stop class
+    // loop and create a div and append to board, add stop class
     for(let i = 0; i < 10; i++){
         let stopDiv = document.createElement('div');
         stopDiv.classList.add('stop');
@@ -129,7 +129,7 @@ let scoreDisplay = document.querySelector('#score');
 // keep track of score
 let score = 0;
 // colors of the 7 tetrominoes
-let colors = ['orange', 'red', 'blue', 'green', 'purple', 'yellow', 'violet']
+let colors = ['blue', 'cyan', 'lime', 'orange', 'green', 'red', 'purple']
 // multiplier for clearing multiple lines at once(defualt is 0)
 let multiplier = 0;
 // score to add keeps track of how many lines are cleared points so we can multiply be the right number(default is 10)
@@ -386,8 +386,8 @@ playButton.addEventListener('click', () => {
 });
 
 let puaseButton = document.querySelector('#puase');
-//puases or unpauses game when clicked
 
+//puases or unpauses game when clicked
 puaseButton.addEventListener('click', () => {
     //check if game is currently in progress or if game is over
     if(isPlaying && !isGameOver){
@@ -466,7 +466,7 @@ restart.addEventListener('click', () => {
     }
 });
 
-// sets Interval the dynamic time and level
+// sets Interval, dynamic time and level
 let resetInterval = (newTime, newLevel) => {
         // change global time
         time = newTime;
