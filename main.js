@@ -30,6 +30,7 @@ createBoard();
 createNextPieceBoard();
 
 //globals for game
+
 //width of game board 10 divs(row)
 let width = 10;
 //starting position for tetromino 4 and keeps track of current tetromino position
@@ -111,7 +112,6 @@ let nextPieceTetrominoes = [
     [0, 1, nextPieceDisplayWidth, nextPieceDisplayWidth+1],
     [1, nextPieceDisplayWidth+1, nextPieceDisplayWidth*2+1, nextPieceDisplayWidth*3+1],
 ];
-//globals
 // array of all tetrominos
 let tetrominoes = [lTetromino, jTetromino, sTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
 // array of all divs inside the board
@@ -252,7 +252,6 @@ let moveLeft = () => {
     // undraw current tetromino
     unDraw();
     //check each position of tetromino if some mod 10 === 0, dont move.
-    //works becuase each left border is a multiple of ten and no other positions on the boards are. 
     if(!currentTetromino.some(i => (currentPosition + i) % width === 0)){
         currentPosition -= 1;
     }
@@ -268,8 +267,7 @@ let moveLeft = () => {
 let moveRight = () => {
     // undraw current tetromino
     unDraw();
-    //check each position of tetromino if some mod 10 === 9, dont move.
-    //works becuase each right border always has a remainder of 9 and no other positions on the board does. 
+    //check each position of tetromino if some mod 10 === 9, dont move. 
     if(!currentTetromino.some(i => (currentPosition + i) % width === width - 1)){
         currentPosition += 1;
     }
@@ -335,22 +333,18 @@ document.addEventListener('keydown', (e) => {
             // move tetromino left
             moveLeft();
         }else if(e.key === 'ArrowUp'){
-            // focus game board
             board.focus();
             // rotate tetromino
             rotate();
         }else if(e.key === 'ArrowRight'){
-            // focus game board
             board.focus();
             // move tetromino right
             moveRight();
         }else if(e.key === 'ArrowDown'){
-            // focus game board
             board.focus();
             // move tetromino down
             moveDown();
         }else if(e.code === 'Space'){
-            // focus game board
             board.focus();
             // hard drop the tetromino 
             drop();
