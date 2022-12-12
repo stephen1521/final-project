@@ -30,7 +30,7 @@ createBoard();
 createNextPieceBoard();
 
 //globals for game
-//width of game board 10 divs
+//width of game board 10 divs(row)
 let width = 10;
 //starting position for tetromino 4 and keeps track of current tetromino position
 let currentPosition = 4;
